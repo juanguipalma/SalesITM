@@ -1,20 +1,33 @@
 ﻿<Properties StartupConfiguration="Multiple projects">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <Xamarin.Addins.Core.Project ActiveDebugTarget="MyAppleMacCatalystID" />
+  <MonoDevelop.Ide.ItemProperties.Sales.API PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.Sales.WEB PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Sales.WEB/Pages/Cities/CityEdit.razor">
+    <Files>
+      <File FileName="Sales.WEB/Pages/Cities/CityEdit.razor" Line="39" Column="26" />
+      <File FileName="Sales.WEB/Pages/States/StateEdit.razor" Line="29" Column="10" NotebookId="1" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Sales" expanded="True">
+            <Node name="Sales.API" expanded="True">
+              <Node name="Controllers" expanded="True" />
+            </Node>
             <Node name="Sales.Shared" expanded="True">
-              <Node name="Entities" expanded="True">
-                <Node name="State.cs" selected="True" />
-              </Node>
+              <Node name="Entities" expanded="True" />
             </Node>
             <Node name="Sales.WEB" expanded="True">
               <Node name="Pages" expanded="True">
                 <Node name="Categories" expanded="True" />
+                <Node name="Cities" expanded="True">
+                  <Node name="CityEdit.razor" selected="True" />
+                </Node>
                 <Node name="Countries" expanded="True" />
                 <Node name="States" expanded="True" />
               </Node>
@@ -30,8 +43,6 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Sales.API PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MultiItemStartupConfigurations>
     <MultiItemSolutionRunConfiguration Id="Multiple projects" Name="Multiple projects">
       <Items>
@@ -40,7 +51,4 @@
       </Items>
     </MultiItemSolutionRunConfiguration>
   </MultiItemStartupConfigurations>
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>
