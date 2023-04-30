@@ -1,0 +1,37 @@
+﻿<Properties StartupConfiguration="{68A761B5-2D8E-4426-B2AB-26C754C0949A}|https">
+  <Xamarin.Addins.Core.Project ActiveDebugTarget="MyAppleMacCatalystID" />
+  <MonoDevelop.Ide.ItemProperties.Sales.API PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Sales.WEB PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Sales.API/appsettings.json">
+    <Files>
+      <File FileName="Sales.API/Program.cs" Line="33" Column="2" />
+      <File FileName="Sales.API/Data/DataContext.cs" Line="1" Column="1" />
+      <File FileName="Sales.API/appsettings.json" Line="3" Column="22" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Sales" expanded="True">
+            <Node name="Sales.API" expanded="True">
+              <Node name="Data" expanded="True" />
+            </Node>
+            <Node name="Sales.WEB" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations>
+    <MultiItemSolutionRunConfiguration Id="Multiple projects" Name="Multiple projects">
+      <Items>
+        <StartupItem ItemId="{68A761B5-2D8E-4426-B2AB-26C754C0949A}" ItemName="Sales.API" ConfigurationId="https" />
+        <StartupItem ItemId="{91701961-4949-465A-9A40-D1A771A4B190}" ItemName="Sales.WEB" ConfigurationId="https" />
+      </Items>
+    </MultiItemSolutionRunConfiguration>
+  </MultiItemStartupConfigurations>
+</Properties>
