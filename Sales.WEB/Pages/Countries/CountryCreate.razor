@@ -24,17 +24,18 @@
         countryForm!.FormPostedSuccessfully = true;
         Return();
         var toast = sweetAlertService.Mixin(new SweetAlertOptions
-            {
-                Toast = true,
-                Position = SweetAlertPosition.TopEnd,
-                ShowConfirmButton = false,
-                Timer = 5000
-            });
+        {
+            Toast = true,
+            Position = SweetAlertPosition.TopEnd,
+            ShowConfirmButton = false,
+            Timer = 5000
+        });
         await toast.FireAsync(icon: SweetAlertIcon.Success, message: "País creado con éxito.");
     }
 
     private void Return()
     {
+        countryForm!.FormPostedSuccessfully = true;
         navigationManager.NavigateTo("/countries");
     }
 }

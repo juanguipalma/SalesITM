@@ -68,6 +68,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/juan.palma/Projects/Sales/Sales.WEB/Pages/States/StateCreate.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU3RhdGVzL1N0YXRlQ3JlYXRlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/juan.palma/Projects/Sales/Sales.WEB/Pages/States/StateDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU3RhdGVzL1N0YXRlRGV0YWlscy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/juan.palma/Projects/Sales/Sales.WEB/Pages/States/StateEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU3RhdGVzL1N0YXRlRWRpdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/juan.palma/Projects/Sales/Sales.WEB/Pages/States/StateForm.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU3RhdGVzL1N0YXRlRm9ybS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/juan.palma/Projects/Sales/Sales.WEB/Shared/GenericList.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0dlbmVyaWNMaXN0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 

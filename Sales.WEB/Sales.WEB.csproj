@@ -24,8 +24,10 @@
 
   <ItemGroup>
     <None Remove="Pages\Categories\" />
+    <None Remove="Pages\States\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\Categories\" />
+    <Folder Include="Pages\States\" />
   </ItemGroup>
 </Project>
