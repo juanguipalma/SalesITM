@@ -1,0 +1,99 @@
+﻿@page "/categories"
+@inject IRepository repository
+@inject NavigationManager navigationManager
+@inject SweetAlertService sweetAlertService
+
+<h3>Categorias</h3>
+
+<div class="mb-3">
+    <a class="btn btn-primary" href="/categories/create">Nueva Categoria</a>
+</div>
+
+<GenericList MyList="categories">
+    <Body>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Categorias</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var category in categories!)
+                {
+                    <tr>
+                        <td>@category.Name</td>
+                        <td>
+                            <a href="/categories/edit/@category.Id" class="btn btn-warning">Editar</a>
+                            <!-- <a href="/categories/details/@category.Id" class="btn btn-info">Detalles</a> No tenemos detalle de categorias para listar-->
+                            <button class="btn btn-danger" @onclick=@(() => DeleteAsync(category.Id))>Borrar</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </Body>
+</GenericList>
+
+@code {
+    private List<Category>? categories;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadAsync();
+    }
+
+    private async Task LoadAsync()
+    {
+        var httpResponse = await repository.GetAsync<List<Category>>("/api/categories");
+        if (httpResponse.Error)
+        {
+            var message = await httpResponse.GetErrorMessageAsync();
+            await sweetAlertService.FireAsync("Error", message, SweetAlertIcon.Error);
+            return;
+        }
+        categories = httpResponse.Response;
+    }
+
+    private async Task DeleteAsync(int id)
+    {
+        var result = await sweetAlertService.FireAsync(new SweetAlertOptions
+        {
+            Title = "Confirmación",
+            Text = "¿Esta seguro que quieres borrar el registro?",
+            Icon = SweetAlertIcon.Question,
+            ShowCancelButton = true
+        });
+
+        var confirm = string.IsNullOrEmpty(result.Value);
+        if (confirm)
+        {
+            return;
+        }
+
+        var responseHTTP = await repository.DeleteAsync($"api/categories/{id}");
+        if (responseHTTP.Error)
+        {
+            if (responseHTTP.HttpResponseMessage.StatusCode == System.Net.HttpStatusCode.NotFound)
+            {
+                navigationManager.NavigateTo("/");
+                return;
+            }
+            var mensajeError = await responseHTTP.GetErrorMessageAsync();
+            await sweetAlertService.FireAsync("Error", mensajeError, SweetAlertIcon.Error);
+            return;
+        }
+
+        await LoadAsync();
+        var toast = sweetAlertService.Mixin(new SweetAlertOptions
+        {
+            Toast = true,
+            Position = SweetAlertPosition.TopEnd,
+            ShowConfirmButton = false,
+            Timer = 2000
+        });
+        await toast.FireAsync(icon: SweetAlertIcon.Success, message: "Categoria eliminada con éxito.");
+    }
+}
+

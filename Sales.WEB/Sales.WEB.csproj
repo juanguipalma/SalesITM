@@ -22,4 +22,10 @@
     <ProjectReference Include="..\Sales.Shared\Sales.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Pages\Categories\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Pages\Categories\" />
+  </ItemGroup>
 </Project>

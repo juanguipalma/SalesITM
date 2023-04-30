@@ -15,6 +15,7 @@ namespace Sales.API.Data
         {
             await _context.Database.EnsureCreatedAsync();
             await CheckCountriesAsync();
+            await CheckCategoriesAsync();
         }
 
         private async Task CheckCountriesAsync()
@@ -81,6 +82,62 @@ namespace Sales.API.Data
                 });
             }
 
+            await _context.SaveChangesAsync();
+        }
+
+        private async Task CheckCategoriesAsync()
+        {
+            if (!_context.Categories.Any())
+            {
+                _context.Categories.Add(new Category
+                {
+                    Name = "Frutas"
+                });
+                _context.Categories.Add(new Category
+                {
+                    Name = "Pescados"
+                });
+                _context.Categories.Add(new Category
+                {
+                    Name = "Carnes"
+                });
+                _context.Categories.Add(new Category
+                {
+                    Name = "Panaderia"
+                });
+                _context.Categories.Add(new Category
+                {
+                    Name = "Calzado"
+                });
+                _context.Categories.Add(new Category
+                {
+                    Name = "Licores"
+                });
+                _context.Categories.Add(new Category
+                {
+                    Name = "Aseo"
+                });
+                _context.Categories.Add(new Category
+                {
+                    Name = "Ropa"
+                });
+                _context.Categories.Add(new Category
+                {
+                    Name = "Tecnologia"
+                });
+                _context.Categories.Add(new Category
+                {
+                    Name = "Hogar"
+                });
+                _context.Categories.Add(new Category
+                {
+                    Name = "Mascotas"
+                });
+                _context.Categories.Add(new Category
+                {
+                    Name = "Jugueteria"
+                });
+            }
             await _context.SaveChangesAsync();
         }
     }
