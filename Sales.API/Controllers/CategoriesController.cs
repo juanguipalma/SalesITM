@@ -1,32 +1,60 @@
-﻿using System;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Sales.API.Data;
+using Sales.API.Helpers;
+using Sales.Shared.DTOs;
 using Sales.Shared.Entities;
 
 namespace Sales.API.Controllers
 {
+    [Route("api/[controller]")]
     [ApiController]
-    [Route("/api/[controller]")]
     public class CategoriesController : ControllerBase
     {
         private readonly DataContext _context;
 
         public CategoriesController(DataContext context)
-		{
+        {
             _context = context;
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAsync()
+        public async Task<IActionResult> GetAsync([FromQuery] PaginationDTO pagination)
         {
-            return Ok(await _context.Categories.ToListAsync());
+            var querable = _context.Categories
+                .AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(pagination.Filter))
+            {
+                querable = querable.Where(c => c.Name.ToLower().Contains(pagination.Filter.ToLower()));
+            }
+
+            return Ok(await querable
+                .OrderBy(c => c.Name)
+                .Paginate(pagination)
+                .ToListAsync());
+        }
+
+        [HttpGet("[action]")]
+        public async Task<ActionResult> GetPages([FromQuery] PaginationDTO pagination)
+        {
+            var querable = _context.Categories.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(pagination.Filter))
+            {
+                querable = querable.Where(c => c.Name.ToLower().Contains(pagination.Filter.ToLower()));
+            }
+
+            double count = await querable.CountAsync();
+            double totalPages = Math.Ceiling(count / pagination.RecordsNumber);
+            return Ok(totalPages);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetAsync(int id)
         {
-            var category = await _context.Categories.FirstOrDefaultAsync(c => c.Id == id);
+            var category = await _context.Categories
+                .FirstOrDefaultAsync(c => c.Id == id);
             if (category == null)
             {
                 return NotFound();
@@ -60,7 +88,7 @@ namespace Sales.API.Controllers
             {
                 if (dbUpdateException.InnerException!.Message.Contains("duplicate"))
                 {
-                    return BadRequest("Ya existe una categoria con el mismo nombre.");
+                    return BadRequest("Ya existe una categoría con el mismo nombre.");
                 }
                 else
                 {
@@ -86,7 +114,7 @@ namespace Sales.API.Controllers
             {
                 if (dbUpdateException.InnerException!.Message.Contains("duplicate"))
                 {
-                    return BadRequest("Ya existe una categoria con el mismo nombre.");
+                    return BadRequest("Ya existe una categoría con el mismo nombre.");
                 }
                 else
                 {

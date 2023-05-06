@@ -154,3 +154,10 @@
 /Users/juan.palma/Projects/Sales/Sales.API/obj/Debug/net7.0/Sales.API.pdb
 /Users/juan.palma/Projects/Sales/Sales.API/obj/Debug/net7.0/Sales.API.genruntimeconfig.cache
 /Users/juan.palma/Projects/Sales/Sales.API/obj/Debug/net7.0/ref/Sales.API.dll
+/Users/juan.palma/Projects/Sales/Sales.API/bin/Debug/net7.0/Microsoft.AspNetCore.Cryptography.Internal.dll
+/Users/juan.palma/Projects/Sales/Sales.API/bin/Debug/net7.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+/Users/juan.palma/Projects/Sales/Sales.API/bin/Debug/net7.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/Users/juan.palma/Projects/Sales/Sales.API/bin/Debug/net7.0/Microsoft.Extensions.Identity.Core.dll
+/Users/juan.palma/Projects/Sales/Sales.API/bin/Debug/net7.0/Microsoft.Extensions.Identity.Stores.dll
+/Users/juan.palma/Projects/Sales/Sales.API/bin/Debug/net7.0/Microsoft.Extensions.Options.dll
+/Users/juan.palma/Projects/Sales/Sales.API/bin/Debug/net7.0/Newtonsoft.Json.dll
