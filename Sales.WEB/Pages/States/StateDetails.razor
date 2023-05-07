@@ -16,10 +16,9 @@ else
             <a class="btn btn-success" href="/countries/details/@state.CountryId">Regresar</a>
         </div>
         <div class="mx-2">
-            <input style="width: 400px;" type="text" class="form-control" id="titulo" placeholder="Buscar ciudad..." @bind-value="Filter" />
+            <input style="width: 400px;" type="text" class="form-control" id="titulo" placeholder="Buscar ciudad..." @oninput="FilterChangeText" @bind-value="Filter" />
         </div>
         <div>
-            <button type="button" class="btn btn-outline-primary" @onclick="ApplyFilterAsync">Filtrar</button>
             <button type="button" class="btn btn-outline-danger" @onclick="CleanFilterAsync">Limpiar</button>
         </div>
     </div>
@@ -74,6 +73,12 @@ else
     [Parameter]
     [SupplyParameterFromQuery]
     public string Filter { get; set; } = "";
+
+    private async Task FilterChangeText(ChangeEventArgs e)
+    {
+        Filter = e.Value?.ToString() ?? "";
+        await ApplyFilterAsync();
+    }
 
     protected override async Task OnInitializedAsync()
     {
